@@ -1,0 +1,60 @@
+{#<!DOCTYPE html>#}
+{#<html lang="fr">#}
+    {#<head>#}
+        {#{% include '../partials/meta.html.twig' %}#}
+        {#<link rel="shortcut icon" type="image/x-icon" href="img/logoFavicon.png" />#}
+        {#<meta name="description" content="Com9Phone, réparateur de télephone, smartphone et tablette à Lourdes" />#}
+        {#<meta name="keywords" content= "Com9Phone, Lourdes, reparation, telephone, smartphone, tablette, batterie oxydée, écran cassé" />#}
+        {#<link href="css/style.css" rel="stylesheet">#}
+        {#<title>Com9Phone</title>#}
+    {#</head>#}
+
+    {#<body class="container-fluid" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">#}
+    {#{% include 'partials/header.html.twig' %}#}
+    {#{% include 'partials/body1.html.twig' %}#}
+    {#{% include 'partials/body2.html.twig' %}#}
+    {#{% include 'partials/footer.html.twig' %}#}
+    {#{% include 'partials/foot_btp.html.twig' %}#}
+    {#</body>#}
+{#</html>#}
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        {% block meta %}
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+            <meta name="description" content="Com9Phone, réparateur de télephone, smartphone et tablette à Lourdes" />
+            <meta name="keywords" content= "Com9Phone, Lourdes, reparation, telephone, smartphone, tablette, batterie oxydée, écran cassé" />
+        {% endblock %}
+
+        {% block css %}
+            {% stylesheets 'bundles/app/css/*' filter='cssrewrite' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v=2" />
+        <title>Com9Phone</title>
+    </head>
+    <body class="container-fluid" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+        {% block content %}{% endblock %}
+
+        {% block js %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script type="text/javascript" src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/app/js/jquery.easing.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/app/js/scrolling-nav.js') }}"></script>
+
+            <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+            <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+            <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+            <![endif]-->
+        {% endblock %}
+    </body>
+</html>
