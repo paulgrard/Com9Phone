@@ -7,6 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    app.path.service_images: /uploads/images/services
 
 framework:
     #esi: ~
@@ -70,3 +71,34 @@ assetic:
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~
+
+easy_admin:
+    entities:
+#        - AppBundle\Entity\Services
+#        - AppBundle\Entity\Tariffs
+        Services:
+            class: AppBundle\Entity\Services
+            list:
+                fields:
+                    - { property: 'title', type: 'string' }
+                    - { property: 'description', type: 'string' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.service_images%' }
+#                    - { property: 'imageFile', type: 'string' }
+            show:
+                fields:
+                    - { property: 'title', type: 'string' }
+                    - { property: 'description', type: 'string' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.service_images%' }
+#                    - { property: 'imageFile', type: 'string' }
+            form:
+                fields:
+                    - { property: 'title' }
+                    - { property: 'description' }
+                    - { property: 'imageFile', type: 'file' }
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        service_images:
+            uri_prefix:         '%app.path.service_images%'
+            upload_destination: '%kernel.root_dir%/../web/uploads/images/services'

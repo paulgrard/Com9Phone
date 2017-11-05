@@ -1,29 +1,9 @@
-{#<!DOCTYPE html>#}
-{#<html lang="fr">#}
-{#<head>#}
-    {#{% include '../partials/meta.html.twig' %}#}
-    {#<link rel="shortcut icon" type="image/x-icon" href="img/logoFavicon.png" />#}
-    {#<meta name="description" content="Com9Phone, réparateur de télephone, smartphone et tablette à Lourdes" />#}
-    {#<meta name="keywords" content= "Com9Phone, Lourdes, reparation, telephone, smartphone, tablette, batterie oxydée, écran cassé" />#}
-    {#<link href="css/style.css" rel="stylesheet">#}
-    {#<title>Com9Phone</title>#}
-{#</head>#}
-{#<body class="container-fluid" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">#}
-{#{% include 'partials/header.html.twig' %}#}
-{#{% include 'partials/body1.html.twig' %}#}
-{#{% include 'partials/body2.html.twig' %}#}
-{#{% include 'partials/footer.html.twig' %}#}
-{#{% include 'partials/foot_btp.html.twig' %}#}
-{#</body>#}
-{#</html>#}
-
-
 {% extends "AppBundle::layout.html.twig" %}
 
 {% block content %}
     {% include 'AppBundle:partials:header.html.twig' %}
     {% include 'AppBundle:partials:body1.html.twig' %}
     {% include 'AppBundle:partials:body2.html.twig' %}
+    {% include 'AppBundle:partials:services.html.twig' %}
     {% include 'AppBundle:partials:footer.html.twig' %}
-    {#{% include 'AppBundle:partials:foot_btp.html.twig' %}#}
 {% endblock %}

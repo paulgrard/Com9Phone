@@ -1,0 +1,14 @@
+<div class="row body border-bottom">
+
+    {% set colNbr = 12 / services|length %}
+
+    {% for service in services %}
+        <div class="col-sm-{{ colNbr }} text-center">
+            <img src="{{ asset('uploads/images/services/') ~ service.image }}"/>
+            <h1>{{ service.title }}</h1>
+            {% if service.description is defined %}
+                <p>{{ service.description }}</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

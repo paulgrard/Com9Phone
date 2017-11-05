@@ -84,15 +84,12 @@ div.imag img{
 
 div.who{
 	border-top: solid 5px;
+}
+
+div.border-bottom {
 	border-bottom: solid 5px;
 	border-color: #e9412c;
 }
-
-div.repair{
-	border-bottom: solid 5px;
-	border-color: #e9412c;
-}
-
 
 @media screen and (min-width: 960px) and (orientation: landscape){
 	.who, .repair{
