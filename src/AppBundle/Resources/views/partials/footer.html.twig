@@ -1,5 +1,5 @@
 <footer>
-    <div class="row foot">
+    <div class="row foot v-center">
         <div class="col-sm-6 col-md-6 formu">
             <h4>Nous contacter</h4>
             <form id="contact" method="post" action="src/traitement_formulaire.php">
@@ -26,12 +26,18 @@
                 </br>
             </form>
         </div>
-        <div class="col-sm-6 col-md-3 image">
-            <img src="{{ asset('bundles/app/img/photoExt1.jpg') }}"/>
+        <div class="col-sm-6 col-md-2 col-md-offset-1 image">
+            <img class="img-footer" src="{{ asset('bundles/app/img/photoExt1.jpg') }}"/>
         </div>
-        <div class="col-md-3 maps">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4898.971948142343!2d-0.04089015323721875!3d43.105646594736704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd57d432d9b46821%3A0xcf8cdda00cf61cbd!2sCom9+Phone!5e0!3m2!1sfr!2sfr!4v1493904897565" width="600" height="450" frameborder="0" style="border:0" allowfullscreen class="maps"></iframe>
+
+        <div class="col-sm-6 col-md-3">
+            {% set siteData = site|first %}
+            {{ siteData.schedule|raw }}
+            {% if not siteData.isOpen %}
+                Closed !
+            {% endif %}
         </div>
+
     </div>
 
     <div class="row">

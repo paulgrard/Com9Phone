@@ -105,9 +105,9 @@ div.border-bottom {
 	    justify-content: center;
 	}
 
-	div.foot .image, div.foot .maps{
-		margin-top: 2%;
-	}
+	/*div.foot .image, div.foot {*/
+		/*margin-top: 2%;*/
+	/*}*/
 
 	p, div.def {
 		font-size: x-large;
@@ -128,12 +128,19 @@ div.image img{
 }
 
 h4{
-	color: #e9412c;
+	color: #fff;
 }
 
 .maps{
-	max-width: 300px;
-	max-height: 300px;
+	/*max-width: 300px;*/
+	/*max-height: 300px;*/
+	height: 420px;
+}
+
+.map-iframe {
+	margin-left: -14px;
+	margin-right: -14px;
+	width: calc(100% + 29px);
 }
 
 div.foot .image img, div.foot .maps iframe{
@@ -172,4 +179,44 @@ div.imag img{
 #carousel-services a.carousel-control.left span.glyphicon, 
 #carousel-services a.carousel-control.right span.glyphicon {
 	color: #e9412c;
+}
+
+
+
+#services-row {
+	background-color: #fff;
+	padding: 40px 0;
+}
+
+#services-row .service-container img {
+	margin-bottom: 20px;
+}
+
+#services-row .service-container .service-title {
+	font-size: 36px;
+}
+
+
+.v-center {
+	display: flex;
+	align-items: center;
+}
+
+.img-footer {
+	width: 100%;
+}
+
+.no-margin {
+	margin-left: -14px;
+	margin-right: -14px;
+	width: calc(100% + 29px);
+
+}
+
+#homeCarousel {
+	margin-top: 96px;
+}
+
+#homeCarousel .carousel-control {
+	background-image: none;
 }

@@ -2,8 +2,11 @@
 
 {% block content %}
     {% include 'AppBundle:partials:header.html.twig' %}
-    {% include 'AppBundle:partials:body1.html.twig' %}
-    {% include 'AppBundle:partials:body2.html.twig' %}
+    {#{% include 'AppBundle:partials:body1.html.twig' %}#}
+    {#{% include 'AppBundle:partials:body2.html.twig' %}#}
+    {% include 'AppBundle:partials:carousel.html.twig' %}
+
     {% include 'AppBundle:partials:services.html.twig' %}
+    {% include 'AppBundle:partials:map.html.twig' %}
     {% include 'AppBundle:partials:footer.html.twig' %}
 {% endblock %}

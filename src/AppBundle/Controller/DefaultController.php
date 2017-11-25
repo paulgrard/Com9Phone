@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Services as Services;
+use AppBundle\Entity\Site as Site;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,10 +25,16 @@ class DefaultController extends Controller
 //
 //        return new Response($content);
 
-        $repository = $this->getDoctrine()->getRepository(Services::class);
-        $services = $repository->findAll();
+        $servicesRepository = $this->getDoctrine()->getRepository(Services::class);
+        $services = $servicesRepository->findAll();
+
+        $siteRepository = $this->getDoctrine()->getRepository(Site::class);
+        $site = $siteRepository->findAll();
 
 
-        return $this->render('AppBundle:default:index.html.twig', array('services' => $services));
+        return $this->render('AppBundle:default:index.html.twig', array(
+            'services' => $services,
+            'site' => $site
+        ));
     }
 }
