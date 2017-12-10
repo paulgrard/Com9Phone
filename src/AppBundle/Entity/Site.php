@@ -31,7 +31,7 @@ class Site
     /**
      * @var string
      *
-     * @ORM\Column(name="schedule", type="string", length=255, nullable=true)
+     * @ORM\Column(name="schedule", type="text", nullable=true)
      */
     private $schedule;
 

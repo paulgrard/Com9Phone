@@ -44,12 +44,14 @@
         {% block content %}{% endblock %}
 
         {% block js %}
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            {#<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>#}
+            <script type="text/javascript" src="{{ asset('bundles/app/js/jquery-3.2.1.min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('bundles/app/js/jquery.easing.min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('bundles/app/js/scrolling-nav.js') }}"></script>
             <script type="text/javascript" src="{{ asset('bundles/app/js/scrolling-nav.js') }}"></script>
             <script type="text/javascript" src="{{ asset('bundles/app/js/carousel.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/app/js/script.js') }}"></script>
 
             <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
             <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

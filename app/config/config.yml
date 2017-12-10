@@ -11,7 +11,6 @@ parameters:
 
 framework:
     #esi: ~
-#    translator: { fallbacks: ['%locale%'] }
     translator: { fallbacks: [fr] }
     secret: '%secret%'
     router:
@@ -75,8 +74,6 @@ assetic:
 
 easy_admin:
     entities:
-#        - AppBundle\Entity\Services
-#        - AppBundle\Entity\Tariffs
         Services:
             class: AppBundle\Entity\Services
             list:
@@ -84,13 +81,11 @@ easy_admin:
                     - { property: 'title', type: 'string' }
                     - { property: 'description', type: 'string' }
                     - { property: 'image', type: 'image', base_path: '%app.path.service_images%' }
-#                    - { property: 'imageFile', type: 'string' }
             show:
                 fields:
                     - { property: 'title', type: 'string' }
                     - { property: 'description', type: 'string' }
                     - { property: 'image', type: 'image', base_path: '%app.path.service_images%' }
-#                    - { property: 'imageFile', type: 'string' }
             form:
                 fields:
                     - { property: 'title' }
@@ -102,6 +97,12 @@ easy_admin:
                 fields:
                     - { property: 'isOpen' }
                     - { property: 'schedule', type: 'ckeditor' }
+        Tariffs:
+            class: AppBundle\Entity\Tariffs
+            form:
+                fields:
+                    - { property: 'title' }
+                    - { property: 'description', type: 'ckeditor' }
 
 
 vich_uploader:
@@ -110,3 +111,9 @@ vich_uploader:
         service_images:
             uri_prefix:         '%app.path.service_images%'
             upload_destination: '%kernel.root_dir%/../web/uploads/images/services'
+
+ivory_ck_editor:
+    default_config: my_config
+    configs:
+        my_config:
+            toolbar: full

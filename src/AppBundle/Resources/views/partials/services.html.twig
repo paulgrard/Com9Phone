@@ -1,16 +1,23 @@
-<div class="row body border-bottom" id="services-row">
+<div class="row border-bottom" id="services-row">
 
     <h2 class="text-center">SERVICES</h2>
 
     {% set colNbr = 12 / services|length %}
 
-    {% for service in services %}
-        <div class="col-sm-{{ colNbr }} text-center service-container">
-            <img src="{{ asset('uploads/images/services/') ~ service.image }}"/>
-            <div class="service-title">{{ service.title }}</div>
-            {% if service.description is defined %}
-                <p>{{ service.description }}</p>
-            {% endif %}
-        </div>
-    {% endfor %}
+    {% if colNbr < 1 %}
+        {% set colNbr = 1 %}
+    {% endif %}
+    {% set colNbr = colNbr|round %}
+
+    <div class="services-container">
+        {% for service in services %}
+            <div class="{% if services|length is odd and loop.index == 1 %}col-md-offset-1 {% endif %}col-sm-6 col-md-{{ colNbr }} text-center service-container">
+                <img src="{{ asset('uploads/images/services/') ~ service.image }}"/>
+                <div class="service-title">{{ service.title }}</div>
+                {% if service.description is defined %}
+                    <p>{{ service.description }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
 </div>

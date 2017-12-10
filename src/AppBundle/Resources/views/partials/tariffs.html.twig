@@ -1,0 +1,17 @@
+<div class="row border-bottom" id="tariffs-row">
+
+    <h2 class="text-center">NOS TARIFS</h2>
+
+    {% for tariff in tariffs %}
+        <div class="col-xs-12">
+            <h3 class="col-lg-4 col-lg-offset-2 col-md-12 tariff-title" id="tariff-{{ loop.index }}">{{ tariff.title }}</h3>
+            {% if tariff.description is defined %}
+                <div class="col-lg-6 col-md-12 tariff-container">
+                    <div class="tariff" id="tariff-{{ loop.index }}-description">
+                        {{ tariff.description|raw }}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

@@ -1,40 +1,56 @@
 <footer>
     <div class="row foot v-center">
-        <div class="col-sm-6 col-md-6 formu">
+        <div class="col-sm-12 col-md-6 formu">
             <h4>Nous contacter</h4>
-            <form id="contact" method="post" action="src/traitement_formulaire.php">
+
+            {% if app.session.flashBag.has('notice') %}
+                <div class="alert alert-success">
+                    {% for msg in app.session.flashBag.get('notice') %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <form method="POST" id="contact" action="{{ path('homepage') }}#contact">
                 <div class="input-group">
-                    <span class="input-group-addon" id="sizing-addon2">Nom :</span>
-                    <input type="text" class="form-control" placeholder="Nom" id="nom" name="nom" tabindex="1" />
+                    <span class="input-group-addon" id="sizing-addon2">{{ form_label(form.name) }} :</span>
+                    {{ form_widget(form.name, {'attr': {'tabindex': '1' , 'class': 'form-control' } }) }}
+                    {{ form_errors(form.name) }}
                 </div>
-                </br>
+
                 <div class="input-group">
-                    <span class="input-group-addon" id="sizing-addon2">Email :</span>
-                    <input type="text" class="form-control" placeholder="Email" id="email" name="email" tabindex="2" />
+                    <span class="input-group-addon" id="sizing-addon2">{{ form_label(form.email) }} :</span>
+                    {{ form_widget(form.email, {'attr': {'tabindex': '2' , 'class': 'form-control' } }) }}
+                    {{ form_errors(form.email) }}
                 </div>
-                </br>
+
                 <div class="input-group">
-                    <span class="input-group-addon" id="sizing-addon2">Objet :</span>
-                    <input type="text" class="form-control" placeholder="Objet" id="objet" name="objet" tabindex="3" />
+                    <span class="input-group-addon" id="sizing-addon2">{{ form_label(form.object) }} :</span>
+                    {{ form_widget(form.object, {'attr': {'tabindex': '3' , 'class': 'form-control' } }) }}
+                    {{ form_errors(form.object) }}
                 </div>
-                </br>
-                <textarea class="form-control" placeholder="Message" id="message" name="message" tabindex="4" cols="30" rows="8"></textarea>
-                </br>
-                <div style="text-align:center;">
-                    <input class="btn btn-primary" type="submit" name="envoi" value="Envoyer!" />
+
+                {{ form_widget(form.message, {'attr': {'tabindex': '4' , 'class': 'form-control', 'cols': '30', 'rows': '8' } }) }}
+                {{ form_errors(form.message) }}
+
+                {{ form_rest(form) }}
+                <div class="text-center submit-container">
+                    <input class="btn btn-primary" type="submit" name="envoi" value="Envoyer !" />
                 </div>
-                </br>
             </form>
+
+
         </div>
-        <div class="col-sm-6 col-md-2 col-md-offset-1 image">
+        <div class="col-md-2 col-md-offset-1 col-xs-offset-0 hidden-sm hidden-xs image">
             <img class="img-footer" src="{{ asset('bundles/app/img/photoExt1.jpg') }}"/>
         </div>
 
-        <div class="col-sm-6 col-md-3">
+        <div class=" col-sm-12 col-md-3 schedule">
             {% set siteData = site|first %}
+            <h3>Horaires : </h3>
             {{ siteData.schedule|raw }}
             {% if not siteData.isOpen %}
-                Closed !
+                Le magasin est exceptionnellement fermé aujourd'hui.
             {% endif %}
         </div>
 
