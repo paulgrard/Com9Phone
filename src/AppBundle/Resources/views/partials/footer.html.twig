@@ -11,6 +11,14 @@
                 </div>
             {% endif %}
 
+            {% if app.session.flashBag.has('error') %}
+                <div class="alert alert-danger">
+                    {% for msg in app.session.flashBag.get('error') %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
             <form method="POST" id="contact" action="{{ path('homepage') }}#contact">
                 <div class="input-group">
                     <span class="input-group-addon" id="sizing-addon2">{{ form_label(form.name) }} :</span>

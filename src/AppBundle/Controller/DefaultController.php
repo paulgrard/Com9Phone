@@ -60,37 +60,29 @@ class DefaultController extends Controller
         if($form->isSubmitted() && $form->isValid()) {
             $contact = $form->getData();
 
-            die($contact);
-            $message = (new \Swift_Message('Com9Phone Contact'))
-                ->setFrom('send@example.com')
-                ->setTo('recipient@example.com')
+            $message = (new \Swift_Message('[Contact] Com9Phone'))
+                ->setFrom($contact->getEmail())
+                ->setTo('paulg@outlook.fr')
                 ->setBody(
                     $this->renderView(
-                    // app/Resources/views/Emails/registration.html.twig
-                        'Emails/registration.html.twig',
-                        array('name' => $name)
+                        'AppBundle:emails:contact.html.twig',
+                        array('contact' => $contact)
                     ),
                     'text/html'
                 )
-                /*
-                 * If you also want to include a plaintext version of the message
-                ->addPart(
-                    $this->renderView(
-                        'Emails/registration.txt.twig',
-                        array('name' => $name)
-                    ),
-                    'text/plain'
-                )
-                */
             ;
 
-            $this->get('mailer')->send($message);
+            try{
+                $this->get('mailer')->send($message);
 
-            $em = $this->getDoctrine()->getManager();
-//            $em->persist($contact);
-//            $em->flush();
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($contact);
+                $em->flush();
 
-            $request->getSession()->getFlashBag()->add('notice', 'Votre mail a bien été envoyé.');
+                $request->getSession()->getFlashBag()->add('notice', 'Votre mail a bien été envoyé.');
+            } catch (Exception $e) {
+                $request->getSession()->getFlashBag()->add('error', 'Une erreur est survenue lors de l\'envoi de votre mail : ' . $e );
+            }
         }
 
         return $this->render('AppBundle:default:index.html.twig', array(

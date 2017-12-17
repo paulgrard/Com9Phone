@@ -7,7 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    app.path.service_images: /uploads/images/services
+    app.path.service_images: 'uploads/images/services'
 
 framework:
     #esi: ~
@@ -103,6 +103,18 @@ easy_admin:
                 fields:
                     - { property: 'title' }
                     - { property: 'description', type: 'ckeditor' }
+        Contact:
+            class: AppBundle\Entity\Contact
+            list:
+                actions: ['-edit', 'show']
+            show:
+                fields:
+                    - { property: 'name' }
+                    - { property: 'email' }
+                    - { property: 'object' }
+                    - { property: 'message' }
+
+
 
 
 vich_uploader:

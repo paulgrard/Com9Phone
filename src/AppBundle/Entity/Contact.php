@@ -166,4 +166,9 @@ class Contact
     {
         $this->createdAt = new \DateTime();
     }
+
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
 }
