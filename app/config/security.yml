@@ -5,7 +5,6 @@ security:
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         in_memory:
-#            memory: ~
             memory:
                 users:
                     claude:
@@ -34,7 +33,6 @@ security:
     access_control:
         # require ROLE_ADMIN for /admin*
         - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/, roles: ROLE_ADMIN }
 
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext

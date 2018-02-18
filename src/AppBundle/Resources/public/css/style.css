@@ -100,19 +100,6 @@ div.border-bottom {
 }
 
 @media screen and (min-width: 960px) and (orientation: landscape){
-	/*.who, .repair{*/
-		/*height: 100%;*/
-		/*display: flex;*/
-	    /*justify-content: center;*/
-	/*}*/
-
-	/*.body .txt, .body .services, .body .imag,*/
-	/*footer .formu, footer .imag{*/
-		/*display: flex;*/
-	    /*flex-direction: column;*/
-	    /*justify-content: center;*/
-	/*}*/
-
 	p, div.def {
 		font-size: x-large;
 	}
@@ -209,7 +196,6 @@ div.imag img{
 
 #tariffs-row .tariff-title {
 	text-decoration: underline;
-	text-align: right;
 }
 
 @media screen and (max-width: 1170px){
@@ -246,6 +232,10 @@ div.imag img{
 	}
 }
 
+.tariff-title-container {
+	text-align: center;
+}
+
 .v-center {
 	display: flex;
 	align-items: center;
@@ -257,6 +247,10 @@ footer .img-footer {
 
 footer .schedule {
 	color: #fff;
+}
+
+footer .schedule .social-logo {
+	margin-top: 30px;
 }
 
 footer .foot {

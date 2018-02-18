@@ -46,22 +46,26 @@
                     <input class="btn btn-primary" type="submit" name="envoi" value="Envoyer !" />
                 </div>
             </form>
-
-
         </div>
+
         <div class="col-md-2 col-md-offset-1 col-xs-offset-0 hidden-sm hidden-xs image">
             <img class="img-footer" src="{{ asset('bundles/app/img/photoExt1.jpg') }}"/>
         </div>
 
-        <div class=" col-sm-12 col-md-3 schedule">
+        <div class="col-sm-12 col-md-3 schedule">
             {% set siteData = site|first %}
             <h3>Horaires : </h3>
             {{ siteData.schedule|raw }}
             {% if not siteData.isOpen %}
                 Le magasin est exceptionnellement fermé aujourd'hui.
             {% endif %}
-        </div>
 
+            <div class="col-xs-12 social-logo">
+                <a href="https://www.facebook.com/com9phone" target="_blank">
+                    <img src="{{ asset('bundles/app/img/fb-logo.png') }}" alt="Logo facebook"/>
+                </a>
+            </div>
+        </div>
     </div>
 
     <div class="row">
